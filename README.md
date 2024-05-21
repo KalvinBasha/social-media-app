@@ -1,4 +1,5 @@
 # social-media-app
+
 🎯 Please mention the requirements you met and which goals you achieved for this assignment.
 I met the requirements of using clerk to sign in, up and out. And also implementing a Radix UI primitive.
 
@@ -8,17 +9,25 @@ I really struggled with being able to create a post and linking my database. I w
 🎯 If so, could you please tell us what was it that you found difficult about these tasks?
 I just feel as though there are holes in my knowledge still. I feel much more confident than the last two weeks however I still clearly have lots of learning to do on the subject of nextJS. I have definitely progressed but not enough so like I said above, I would love to just go over that with a TA at some point if possible and fix my errors to then have a more complete submission.
 
-
 Unhandled Runtime Error
 Error: SASL: SCRAM-SERVER-FINAL-MESSAGE: server signature is missing
 
 Source
 src/app/layout.js (16:20) @ async RootLayout
 
-  14 |   const { userId } = auth();
-  15 |
-> 16 |   const profiles = await db.query(
+14 | const { userId } = auth();
+15 |
+
+> 16 | const profiles = await db.query(
+
      |                    ^
-  17 |     `SELECT * FROM profiles WHERE clerk_id = '${userId}`
-  18 |   );
-  19 |
+
+17 | `SELECT * FROM profiles WHERE clerk_id = '${userId}`
+18 | );
+19 |
+
+CREATE TABLE posts (
+id SERIAL PRIMARY KEY,
+profile_id INT REFERENCES profiles(id),
+content TEXT
+);
