@@ -14,7 +14,7 @@ export default async function RootLayout({ children }) {
   const { userId } = auth();
 
   const profiles = await db.query(
-    `SELECT * FROM profiles WHERE clerk_id = '${userId}`
+    `SELECT * FROM profiles WHERE clerk_id = ${userId}`
   );
 
   if (profiles.rowCount === 0 && userId !== null) {

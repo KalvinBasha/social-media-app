@@ -28,11 +28,11 @@ export default async function Posts() {
 
   return (
     <div>
-      <h2>Posts</h2>
+      <h1>Posts Page</h1>
       <SignedIn>
         <h3>Create a new post</h3>
         <form action={handleAddPost}>
-          <textarea name="content" placeholder="New post"></textarea>
+          <textarea name="content" placeholder="Add a post"></textarea>
           <button>Submit</button>
         </form>
       </SignedIn>
